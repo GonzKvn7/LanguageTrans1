@@ -1,4 +1,4 @@
-const fromText= document.querySelector(".from-text"),
+const fromText = document.querySelector(".from-text"),
 toText = document.querySelector(".to-text"),
 exchangeIcon = document.querySelector(".exchange"),
 selectTag = document.querySelectorAll("select"),
@@ -17,7 +17,7 @@ exchangeIcon.addEventListener("click", ()=> {
     let tempText = fromText.value,
     tempLang = selectTag[0].value;
     fromText.value = toText.value;
-    toText.value = temptText;
+    toText.value = tempText;
     selectTag[0].value = selectTag[1].value;
     selectTag[1].value = tempLang;
 });
@@ -52,17 +52,18 @@ icons.forEach(icon => {
             navigator.clipboard.writeText(fromText.value);
         } else {
             navigator.clipboard.writeText(toText.value);
-        }
-    } else {
+        
+    } 
+     {
         let utterance;
-        if(target.id == "from") {
+        if (target.id == "from") {
             utterance = new SpeechSynthesisUtterance(fromText.value);
             utterance.lang = selectTag[0]. value;
-        }else{
+        } else {
             utterance = new SpeechSynthesisUtterance(toText.value);
             utterance.lang = selectTag[1].value;
         }
         speechSynthesis.speak(utterance);
     }
-});
+    });
 });
